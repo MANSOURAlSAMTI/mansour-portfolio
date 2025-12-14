@@ -1,10 +1,243 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mansour Portfolio</title>
-</head>
-<body>
-OK
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mansour | Portfolio</title> 
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"> 
+
+<style>
+:root{
+  --purple:#f83cf9;
+  --blue:#3f2a66;
+  --dark:#0d0b16;
+  --white:#ffffff;
+} 
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+} 
+
+body{
+  background:var(--dark);
+  color:var(--white);
+  overflow-x:hidden;
+} 
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:
+    linear-gradient(rgba(13,11,22,.7),rgba(13,11,22,.85)),
+    url("karaoke.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+} 
+
+.hero-content{
+  max-width:900px;
+  padding:20px;
+} 
+
+.hero h1{
+  font-size:3.5rem;
+  font-weight:800;
+  color:var(--purple);
+} 
+
+.hero p{
+  margin-top:15px;
+  font-size:1.2rem;
+  color:#ddd;
+} 
+
+/* SLIDE IN */
+.slide-in{
+  opacity:0;
+  transform:translateX(-80px);
+  animation:slideIn 1s ease forwards;
+} 
+
+.slide-in.delay{
+  animation-delay:.3s;
+} 
+
+@keyframes slideIn{
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+} 
+
+/* SECTION */
+section{
+  padding:100px 10%;
+} 
+
+.section-title{
+  font-size:2.2rem;
+  color:var(--purple);
+  margin-bottom:30px;
+} 
+
+/* ABOUT */
+.about{
+  background:linear-gradient(135deg,#1c270c,#0d0b16);
+} 
+
+.about p{
+  max-width:900px;
+  line-height:1.9;
+  color:#e0e0e0;
+} 
+
+/* PORTFOLIO */
+.portfolio{
+  background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+    url("concert.jpg") center/cover no-repeat;
+} 
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+} 
+
+.card{
+  background:rgba(255,255,255,.06);
+  padding:25px;
+  border-radius:15px;
+  backdrop-filter:blur(6px);
+  transition:.4s;
+} 
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px rgba(248,60,249,.4);
+} 
+
+.card h3{
+  color:var(--purple);
+  margin-bottom:10px;
+} 
+
+/* CONTACT */
+.contact{
+  background:#0b0914;
+  text-align:center;
+} 
+
+.contact a{
+  display:inline-block;
+  margin:10px;
+  color:var(--white);
+  text-decoration:none;
+  padding:12px 25px;
+  border-radius:30px;
+  border:1px solid var(--purple);
+  transition:.3s;
+} 
+
+.contact a:hover{
+  background:var(--purple);
+  color:#000;
+} 
+
+/* REVEAL ON SCROLL */
+.reveal{
+  opacity:0;
+  transform:translateY(80px);
+  transition:1s;
+} 
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+} 
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{
+    font-size:2.5rem;
+  }
+}
+</style>
+</head> 
+
+<body> 
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1 class="slide-in">Mansour Ahmed AlSamti</h1>
+    <p class="slide-in delay">
+      Project Manager · Studio Manager · Sound Designer · Creative Producer
+    </p>
+  </div>
+</div> 
+
+<!-- ABOUT -->
+<section class="about reveal">
+  <h2 class="section-title">About Me</h2>
+  <p>
+    A multidisciplinary professional with over 15 years of experience in
+    project management, studio operations, sound design, production, and
+    creative development. I specialize in building creative teams, managing
+    high-level productions, and delivering cinematic-quality results across
+    media, entertainment, and digital platforms.
+  </p>
+</section> 
+
+<!-- PORTFOLIO -->
+<section class="portfolio reveal">
+  <h2 class="section-title">What I Do</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Project Management</h3>
+      <p>End-to-end production planning, execution, and delivery.</p>
+    </div>
+    <div class="card">
+      <h3>Studio Management</h3>
+      <p>Operational leadership, workflow optimization, and team direction.</p>
+    </div>
+    <div class="card">
+      <h3>Sound Design</h3>
+      <p>Cinematic audio, music production, and post-production sound.</p>
+    </div>
+    <div class="card">
+      <h3>Creative Direction</h3>
+      <p>Concept development, branding, and visual storytelling.</p>
+    </div>
+  </div>
+</section> 
+
+<!-- CONTACT -->
+<section class="contact reveal">
+  <h2 class="section-title">Contact</h2>
+  <a href="https://wa.me/966508122281" target="_blank">WhatsApp</a>
+  <a href="https://instagram.com/mans.rmx" target="_blank">Instagram</a>
+  <a href="mailto:Mansour@martc.live">Email</a>
+</section> 
+
+<script>
+/* Reveal on scroll */
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll(".reveal").forEach(el=>{
+    const top=el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+</script> 
+
 </body>
 </html>
